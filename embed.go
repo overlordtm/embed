@@ -175,7 +175,7 @@ func crawl(rootPath string, currentPath string, dest map[string][]byte) error {
 			if err != nil {
 				log.Printf("Failure reading file %v: %v", fullPath, err)
 			} else {
-				key := strings.TrimLeft(fullPath, rootPath)
+				key := strings.TrimPrefix(fullPath, rootPath)
 				if strings.HasPrefix(key, string(os.PathSeparator)) {
 					key = key[1:]
 				}
